@@ -48,9 +48,9 @@ for score in scores:
         exit()
 
 # 결과 출력 (확인용)
-print(f"선택한 과목: {draw_subject}")
-print("남자 점수 분포:", male)
-print("여자 점수 분포:", female)
+#print(f"선택한 과목: {draw_subject}")
+#print("남자 점수 분포:", male)
+#print("여자 점수 분포:", female)
 
 # 그래프 그리기
 Draw_graph.DrawG(draw_subject, male, female)  # Draw_graph 파일에 정의된 함수 DrawG 사용
