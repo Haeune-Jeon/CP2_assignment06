@@ -1,6 +1,7 @@
 """
 build_data.py
 
+
 이 모듈은 '20231231.csv' 파일을 읽어 데이터를 처리하고 저장하는 기능을 제공합니다.
 
 함수:
@@ -63,3 +64,5 @@ if __name__ == "__main__":
     print("build_data 모듈입니다.")
     print("main 함수를 실행중입니다...\n")
     print_data(build_data())
+
+test = True
