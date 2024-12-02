@@ -1,13 +1,16 @@
 #Draw_graph
 import matplotlib.pyplot as plt
 
+#for Window
 plt.rcParams['font.family'] ='Malgun Gothic'
 plt.rcParams['axes.unicode_minus'] =False
+
+coler = ['#3d59ff','#ffe13d']
 
 ################  test data setting
 """
 maleS = {}
-femaleS = {}
+femaleS = {}p
 
 for i in range(0,170,10):
     
@@ -47,13 +50,24 @@ def DrawG( subject, maleS , femaleS):
             fvalue.append(femaleS[i])
     ##################################
 
-    ### draw graph
+    Mratio = []
+    Fratio = []
+    for i in range(0,len(mkey)):
+        Mratio.append(mvalue[i]/(mvalue[i]+fvalue[i])*100)
+        Fratio.append(100-Mratio[i])
 
-    plt.plot(mkey,mvalue,"b-",)
-    plt.plot(fkey,fvalue,"r-",)
+    ### draw graph
+    '''
+    plt.plot(mkey,Mratio,"b-",)
+    plt.plot(fkey,Fratio,"r-",)
+    '''
+    plt.margins(x=0,y=0)
+    plt.stackplot(fkey,Mratio,Fratio, colors = coler,labels = ['남자','여자'])
     ### setting elements
-    plt.ylabel('Number of student')
-    plt.xlabel('Standard score')
+    plt.ylabel('성별에 따른 비율')
+    plt.xlabel('표준점수')
+    plt.legend()
+    plt.grid(True)
     plt.title(subject,fontdict =title_font ,loc = 'left', pad =15)
     plt.title("male = blue / female = red",fontdict = sub_font, loc = 'right', pad =15)
     plt.show()
