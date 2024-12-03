@@ -1,8 +1,7 @@
 """
 build_data.py
 
-
-이 모듈은 '20231231.csv' 파일을 읽어 데이터를 처리하고 저장하는 기능을 제공합니다.
+이 모듈은 연도별 csv 파일을 읽어 데이터를 처리하고 저장하는 기능을 제공합니다.
 
 함수:
 - build_data(): CSV 파일을 읽어 데이터 구조로 변환하여 반환합니다.
@@ -19,7 +18,7 @@ import csv
 
 def build_data():
     """
-    CSV 파일을 읽어 데이터를 처리하여 반환합니다.
+    입력한 연도(2020 ~ 2023)의 CSV 파일을 읽어 데이터를 처리하여 반환합니다.
 
     반환 형식:
     {
@@ -33,7 +32,15 @@ def build_data():
     """
     data = {}
 
-    f = open('20231231.csv','r', encoding = 'euc-kr')
+    while True:
+        year_input = input("연도 선택(2020, 2021, 2022, 2023) : ")
+        if year_input in ['2020', '2021', '2022', '2023']:
+            break
+        else:
+            print("잘못된 입력입니다.")
+
+    input_file = year_input + '1231.csv'
+    f = open(input_file, 'r', encoding = 'euc-kr')
     reader = csv.reader(f)
 
     next(reader)
@@ -64,5 +71,3 @@ if __name__ == "__main__":
     print("build_data 모듈입니다.")
     print("main 함수를 실행중입니다...\n")
     print_data(build_data())
-
-test = True
