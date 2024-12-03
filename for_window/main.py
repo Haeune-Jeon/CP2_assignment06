@@ -2,12 +2,18 @@
 import build_data
 import Draw_graph
 
-# 사용자에게 과목명 입력받기
-user_choice = input("성적 분포를 알고 싶은 과목명을 입력하세요: ")
-
 # 데이터를 불러오기
 data = build_data.build_data()  # build_data 파일에 정의된 함수 build_data() 사용
-subjects = data.keys()  # 과목명 추출 (겉 딕셔너리의 key)
+subjects = data.keys()
+subjects_list = list(data.keys())  # 과목명 추출 (겉 딕셔너리의 key)
+
+# 사용자에게 과목명 입력받기
+input_message = []
+for i in range(len(subjects)):
+    input_message.append(f"{i+1}.{subjects_list[i]}")
+
+user_choice_num = input("\n".join(input_message) + " : ")
+user_choice = subjects_list[int(user_choice_num)-1]
 
 # 과목 찾기
 draw_subject = None
