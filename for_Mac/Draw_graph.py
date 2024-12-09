@@ -10,7 +10,7 @@ coler = ['#3d59ff','#ffe13d']
 ################  test data setting
 """
 maleS = {}
-femaleS = {}p
+femaleS = {}
 
 for i in range(0,170,10):
     
@@ -69,7 +69,6 @@ def DrawG( subject, maleS , femaleS):
     plt.legend()
     plt.grid(True)
     plt.title(subject,fontdict =title_font ,loc = 'left', pad =15)
-    plt.title("male = blue / female = red",fontdict = sub_font, loc = 'right', pad =15)
     plt.show()
 
 #############################################################
